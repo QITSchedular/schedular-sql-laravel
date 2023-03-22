@@ -64,3 +64,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+"SQLSTATE[HY000] [1045] Access denied for user 'qitsolution_schedularbackend'@'localhost' 
+(using password: YES) (SQL: insert into `meetings` (`email`, `name`, `companyName`, `website`, `subject`, `token`, `isVerified`) values (qitschedular2023@gmail.com, dghjhdsg, qitschedular2023@gmail.com, qitschedular2023@gmail.com, qitschedular2023@gmail.com, 984283660, 0))"

@@ -48,9 +48,10 @@ class InitializeVerification extends Controller
         // } );
         return response()->json([
             'message' => 'Please, check your email, we have sent you a Link for Email Verification..',
-            'status' => 'successinfo',
+            'status' => 'success',
             'statuscode' => 201,
             'rand' => $token,
+            'isverified'=>false,
         ], 201);
     }
 
@@ -62,10 +63,24 @@ class InitializeVerification extends Controller
         if(isset($result[0])){
             $result = DB::table('meetings')
             ->where(['token'=>$token])
-            ->update(['isVerified'=>1, 'token'=>'']); 
+            ->update(['isVerified'=>1]); 
             return view('welcome');
         } else{
             dd('nothing');
         }
+    }
+    public function verificationStatus(Request $request, $token){
+        $result = DB::table('meetings')
+            ->where(['token'=>$token])
+            ->get();
+            if(isset($result[0])){
+                return response()->json([
+                    'data' => $result[0]
+                ],200);
+            } else{
+                return response()->json([
+                    'error' => 'No data found for the given token'
+                ],404);
+            }
     }
 }

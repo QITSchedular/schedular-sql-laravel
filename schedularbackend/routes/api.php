@@ -23,5 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/gettoken', [CalendarController::class, 'getToken']);
-Route::post('/sendverificationmail', [InitializeVerification::class, 'sendVerificationEmail']);
 Route::post('/booking', [BookingController::class, 'booking']);
+
+Route::post('/sendverificationmail', [InitializeVerification::class, 'sendVerificationEmail']);
+Route::get('/checkstatus/{token}', [InitializeVerification::class, 'verificationStatus']);

@@ -35,8 +35,8 @@ class BookingController extends Controller
         ])->post('https://graph.microsoft.com/v1.0/users/Ravi.s@qitsolution.co.in/calendar/events', $config);
 
         // check the response status code and return a response accordingly
-        if ($response->ok()) {
-            return response()->json(['message' => 'Event created successfully']);
+        if ($response->status() === 201) {
+            return response()->json(['message' => 'Event created successfully'],$response->status());
         } else {
             return response()->json(['message' => 'Failed to create event'], $response->status());
         }

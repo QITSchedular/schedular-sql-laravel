@@ -15,9 +15,9 @@ return [
     |
     */
 
-    'paths' => ['api/*','api'],
+    'paths' => ['api/*','sanctum/csrf-cookie','api'],
     'allowed_methods' => ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE'],
-    'allowed_origins' => ['https://schedular.qitsolution.co.in'],
+    'allowed_origins' => ['http://localhost:3000','https://schedular.qitsolution.co.in'],
     'allowed_origins_patterns' => ['^https?:\/\/schedular\.qitsolution\.co\.in\/?$'],
     'allowed_headers' => ['Content-Type', 'Accept', 'Authorization', 'X-Requested-With', 'Application', 'ip'],
     'exposed_headers' => [],
